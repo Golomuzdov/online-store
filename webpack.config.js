@@ -2,6 +2,8 @@ const path = require('path');
 const { merge } = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const baseConfig = {
     entry: path.resolve(__dirname, './src/index.ts'),
@@ -9,8 +11,12 @@ const baseConfig = {
     module: {
         rules: [
             {
-                test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                test:/\.(s*)css$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                   'css-loader',
+                   'sass-loader',
+                ]
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -24,7 +30,7 @@ const baseConfig = {
         ],
     },
     resolve: {
-        extensions: ['.ts', '.js'],
+        extensions: ['.ts', '.js', '.scss'],
     },
     output: {
         filename: 'index.js',
@@ -35,7 +41,16 @@ const baseConfig = {
             template: path.resolve(__dirname, './src/index.html'),
             filename: 'index.html',
         }),
+
         new CleanWebpackPlugin(),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: './src/image', to: 'image' },
+            ]
+        }),
+        new MiniCssExtractPlugin({
+          filename: 'style.css',
+        })
     ],
 };
 
