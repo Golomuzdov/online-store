@@ -1,0 +1,206 @@
+@import "color_and_font.scss";
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: $font;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@mixin three-column-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@mixin two-column-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin title {
+    font-weight: 600;
+    font-size: $title-size;
+    color: $font-color;
+    border-bottom: solid 2px $border-color;
+    margin-bottom: 10px;
+}
+
+@mixin border {
+    border: solid 2px $border-color;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+@mixin button {
+    font-size: $button-text-size;
+    max-width: 100px;
+    width: 100%;
+    height: 30px;
+    background: $background-button;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.header-wrapper {
+    width: 100%;
+    @include three-column-layout;
+    border-bottom: solid 4px rgb(46, 175, 121);
+    border-radius: 39%;
+    margin-bottom: 20px;
+}
+
+.main-wrapper {
+    width: 100%;
+    display: flex;
+    padding: 0 15px;
+    justify-content: space-around;
+}
+
+.title {
+    @include title;
+    text-align: center;
+}
+
+.main__filter-container {
+    width: 30%;
+    @include border;
+}
+
+.filter-container__button {
+    @include two-column-layout;
+    margin: 10px 0;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+    height: 30px;
+}
+
+input[type="range"] {
+    appearance: none;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    appearance: none;
+    height: 5px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: $background-button;
+    pointer-events: auto;
+    margin-top: -4px;
+}
+
+input[type="range"]:active::-webkit-slider-thumb {
+    background-color: $background-button-hover;
+    border: 1px solid rgb(141, 117, 101);
+}
+
+.input-container__slider-track {
+    width: 100%;
+    height: 3px;
+    background-color: #c8af84;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+
+.input-values {
+    @include three-column-layout;
+    width: 90%;
+    position: relative;
+    border-radius: 5px;
+    text-align: center;
+    font-size: $title-size;
+    font-weight: 500;
+    color: rgb(71, 71, 43);
+    margin: auto;
+}
+
+.button {
+    @include button;
+}
+
+.button:hover,
+.item__button:hover {
+    background: $background-button-hover;
+}
+
+.main__product-container {
+    width: 68%;
+    @include border;
+}
+
+.sort-products {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: solid 2px $border-color;
+}
+
+.view {
+    width: 12%;
+    @include two-column-layout;
+}
+
+.wrapper-item {
+    max-width: 32%;
+    width: 100%;
+    height: 200px;
+    @include border;
+}
+
+.item-content {
+    height: 150px;
+}
+
+.item__button-conteiner {
+    @include three-column-layout;
+}
+
+.item__button {
+    @include button;
+}
+
+.footer {
+    @include three-column-layout;
+    border-top: solid 4px rgb(46, 175, 121);
+    border-radius: 39%;
+    margin-top: 20px;
+}
+
+.block-category,
+.block-brand,
+.block-price,
+.block-stock {
+    @include border;
+    margin: 10px 0;
+}

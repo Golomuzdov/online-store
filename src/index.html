@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online store</title>
+    <link rel="icon" type="image/png" href="./image/favicon.png">
+</head>
+<body>
+    <header class="header">
+        <div class="header-wrapper">
+            <div class="header__logo">
+                <img src="./image/favicon.svg" alt="Logo" width="150" height="150">
+            </div>
+            <div class="header__total-sum">
+
+            </div>
+            <div class="header__shopping-basket">
+                <img src="./image/shopping-basketsvg.svg" alt="Shopping basket" width="70" height="70">
+                <span class="header__counter"></span>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="main-wrapper">
+            <div class="main__filter-container">
+                <div class="block-category">
+                    <h2 class="block-category__title title">Category</h2>
+                    <div class="block-category__choice">
+                        <div>
+                            <input type="checkbox" id="phones" name="phones">
+                            <label for="phones">Phones</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="laptops" name="laptops">
+                            <label for="laptops">Laptops</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="accessories" name="accessories">
+                            <label for="accessories">Accessories</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="block-brand">
+                    <h2 class="block-brand__title title">Brand</h2>
+                    <div class="block-brand__choice">
+                        <div>
+                            <input type="checkbox" id="apple" name="apple">
+                            <label for="apple">Apple</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="xiaomi" name="xiaomi">
+                            <label for="xiaomi">Xiaomi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="samsung" name="samsung">
+                            <label for="samsung">Samsung</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="block-price">
+                    <h2 class="block-price__title title">Price</h2>
+                    <div class="input-wrapper">
+                        <div class="input-values">
+                            <span id="range1">
+                                10.00
+                            </span>
+                            <span> &nbsp;   &harr;   &nbsp;</span>
+                            <span id="range2">
+                                50 000.00
+                            </span>
+                        </div>
+                        <div class="input-container">
+                            <div class="input-container__slider-track"></div>
+                            <input value="500" min="10" max="50000" step="10" type="range">
+                            <input value="50000" min="10" max="50000" step="10" type="range">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block-stock">
+                    <h2 class="block-stock__title title">Stock</h2>
+                    <div class="input-wrapper">
+                        <div class="input-values">
+                            <span id="range1">
+                                2
+                            </span>
+                            <span> &nbsp;   &harr;   &nbsp;</span>
+                            <span id="range2">
+                                150
+                            </span>
+                        </div>
+                        <div class="input-container">
+                            <div class="input-container__slider-track"></div>
+                            <input value="2" min="2" max="150" step="1" type="range">
+                            <input value="150" min="2" max="150" step="1" type="range">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-container__button">
+                    <button class="button">Reset Filters</button>
+                    <button class="button">Copy Link</button>
+                </div>
+            </div>
+            <div class="main__product-container">
+                <div class="sort-products">
+                    <div class="sort-bar">
+                        <select name="" id="">
+                            <option value="sort-title">Sort options:</option>
+                            <option value="price-ASC">Sort by price ASC</option>
+                            <option value="price-DESC">Sort by price DESC</option>
+                            <option value="rating-ASC">Sort by rating ASC</option>
+                            <option value="rating-DESC">Sort by rating DESC</option>
+                        </select>
+                    </div>
+                    <div class="sort-products__found">Found:</div>
+                    <div>
+                        <input type="search" placeholder="Search product">
+                    </div>
+                    <div class="view">
+                        <div class="view-small"><img src="./image/view-small.png" alt="View small" width="30" height="30"></div>
+                        <div class="view-big"><img src="./image/view-big.png" alt="View big" width="30" height="30"></div>
+                    </div>
+                </div>
+
+                <div class="products__items">
+                    <div class="wrapper-item">
+                        <div class="item-content">
+                            <h3 class="item-content__title"></h3>
+                            <div class="item-content__parameters"></div>
+                        </div>
+                        <div class="item__button-conteiner">
+                            <button class="item__button">ADD TO CART</button>
+                            <button class="item__button">DETAILS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="github">
+            <a href="https://github.com/viktoridanilova"><img class="github__image" src="./image/github.svg" alt="Github" width="30" height="30"></a>
+            <a href="https://github.com/Golomuzdov"><img class="github__image" src="./image/github.svg" alt="Github" width="30" height="30"></a>
+        </div>
+        <div>Online store 2022</div>
+        <div class="rs-school">
+            <a href="https://rs.school/js/"><img class="rs-school__image" src="../image/rs_school.svg" alt="RS-School" width="70" height="40"></a>
+        </div>
+    </footer>
+</body>
+</html>

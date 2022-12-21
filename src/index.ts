@@ -1,0 +1,1 @@
+import './style/home_page.scss';
