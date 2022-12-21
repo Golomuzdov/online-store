@@ -159,9 +159,7 @@ input[type="range"]:active::-webkit-slider-thumb {
 }
 
 .sort-products {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    @include two-column-layout;
     margin-bottom: 20px;
     border-bottom: solid 2px $border-color;
 }
