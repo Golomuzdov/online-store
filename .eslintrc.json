@@ -20,7 +20,7 @@
         "@typescript-eslint/no-explicit-any": 2,
         "no-plusplus": "off",
         "no-console": "off",
-        "max-len": ["warn", { "code": 120 }],
+        "max-len": "off",
         "indent": [
             "warn",
             2,
