@@ -169,35 +169,15 @@ input[type="range"]:active::-webkit-slider-thumb {
     @include two-column-layout;
 }
 
-.products-container {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.products-element {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 25%;
-    height: 300px;
-    margin: 0 auto 20px auto;
-    @include border;
-    cursor: pointer;
-}
-
-.products-element__name {
-    font-size: $text-size;
-}
-
-.products-element__img {
-    max-width: 200px;
-    height: 200px;
+.wrapper-item {
+    max-width: 32%;
     width: 100%;
-    margin: 5px auto;
+    height: 200px;
+    @include border;
 }
 
-.products-element__price {
-    margin-bottom: 5px;
+.item-content {
+    height: 150px;
 }
 
 .item__button-conteiner {

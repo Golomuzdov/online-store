@@ -6,6 +6,6 @@ export interface ICatalog {
   description: string;
   price: number;
   amount: string;
-  image: [string, string];
+  image: string[];
   rating: string;
 }
