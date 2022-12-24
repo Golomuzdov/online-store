@@ -127,18 +127,7 @@
                     </div>
                 </div>
 
-                <div class="products__items">
-                    <div class="wrapper-item">
-                        <div class="item-content">
-                            <h3 class="item-content__title"></h3>
-                            <div class="item-content__parameters"></div>
-                        </div>
-                        <div class="item__button-conteiner">
-                            <button class="item__button">ADD TO CART</button>
-                            <button class="item__button">DETAILS</button>
-                        </div>
-                    </div>
-                </div>
+                <div class="products__items"></div>
             </div>
         </div>
     </main>
@@ -154,3 +143,24 @@
     </footer>
 </body>
 </html>
+
+<template id="card">
+    <div class="wrapper-item">
+        <div class="item-content">
+            <h3 class="item-content__title"></h3>
+            <img class="item-content__image" src="">
+            <div class="item-content__parameters">
+                <div class="item-content__category"></div>
+                <div class="item-content__brand"></div>
+                <div class="item-content__price"></div>
+                <div class="item-content__discount">Discount: </div>
+                <div class="item-content__rating"></div>
+                <div class="item-content__stock">Stock: </div>
+            </div>
+        </div>
+        <div class="item__button-conteiner">
+            <button class="item__button">ADD TO CART</button>
+            <button class="item__button">DETAILS</button>
+        </div>
+    </div>
+</template>
