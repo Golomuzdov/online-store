@@ -1,0 +1,143 @@
+@import "color_and_font.scss";
+
+.wrapper-details {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-around;
+    height: 490px;
+    margin: 0 5%;
+}
+
+.details-list {
+    ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: $big-font;
+    }
+
+    a {
+        cursor: pointer;
+        text-decoration: none;
+        color: $font-color;
+    }
+}
+
+.details-list__arrow {
+    color: $bright-color;
+}
+
+.details-container {
+    @include border;
+    margin: 0 10px;
+    height: 465px;
+}
+
+.wrapper__details-title {
+    @include border-buttom;
+    color: $font-color;
+    margin-bottom: 15px;
+}
+
+.details-title {
+    text-align: center;
+}
+
+.four-column-layout {
+    display: flex;
+    width: 100%;
+    height: 90%;
+}
+
+.wrapper__image-slide {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 13%;
+}
+
+.image-slide {
+    max-width: 100%;
+    width: 100%;
+    height: 250px;
+    @include border;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.details-container__image {
+    @include centering;
+    flex-basis: 29%;
+}
+
+.big-image {
+    max-width: 80%;
+    width: 100%;
+    height: 390px;
+    @include border;
+    cursor: pointer;
+}
+
+.details-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    flex-basis: 45%;
+}
+
+.details-content__box {
+    @include row-layout;
+    @include border;
+    margin-bottom: 5px;
+}
+
+.category {
+    font-size: $title-size;
+    font-weight: 600;
+    width: 100%;
+    @include border-buttom;
+}
+
+.cost-and-buttons {
+    @include row-layout;
+    justify-content: space-around;
+    flex-basis: 13%;
+}
+
+.cost {
+    @include centering;
+    width: 120px;
+    height: 120px;
+    background: $translucent-bright-color;
+    border-radius: 60px;
+    font-size: 30px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 8px $bright-color;
+}
+
+.buttons-conteiner {
+    width: 100%;
+    @include row-layout;
+}
+
+.details__button {
+    @include button;
+    max-width: 90%;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.details__button:hover {
+    background: $background-button-hover;
+}
+
+.border-glow {
+    border: solid 2px $bright-color;
+    border-radius: 10px;
+    padding: 10px;
+}

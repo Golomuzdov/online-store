@@ -11,126 +11,20 @@
     <header class="header">
         <div class="header-wrapper">
             <div class="header__logo">
-                <img src="./image/logo.svg" alt="Logo" width="150" height="150">
+                <img src="./image/logo.png" alt="Logo" width="150" height="150">
             </div>
             <div class="header__total-sum">
 
             </div>
             <div class="header__shopping-basket">
-                <img src="./image/shopping-basketsvg.svg" alt="Shopping basket" width="70" height="70">
+                <img src="./image/shopping-basketsvg.svg" alt="Shopping basket" width="100" height="100">
                 <span class="header__counter"></span>
             </div>
         </div>
     </header>
-    <main class="main">
-        <div class="main-wrapper">
-            <div class="main__filter-container">
-                <div class="block-category">
-                    <h2 class="block-category__title title">Category</h2>
-                    <div class="block-category__choice">
-                        <div>
-                            <input type="checkbox" id="phones" name="phones">
-                            <label for="phones">Phones</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="laptops" name="laptops">
-                            <label for="laptops">Laptops</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="accessories" name="accessories">
-                            <label for="accessories">Accessories</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="block-brand">
-                    <h2 class="block-brand__title title">Brand</h2>
-                    <div class="block-brand__choice">
-                        <div>
-                            <input type="checkbox" id="apple" name="apple">
-                            <label for="apple">Apple</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="xiaomi" name="xiaomi">
-                            <label for="xiaomi">Xiaomi</label>
-                        </div>
-                        <div>
-                            <input type="checkbox" id="samsung" name="samsung">
-                            <label for="samsung">Samsung</label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="block-price">
-                    <h2 class="block-price__title title">Price</h2>
-                    <div class="input-wrapper">
-                        <div class="input-values">
-                            <span id="range1">
-                                10.00
-                            </span>
-                            <span> &nbsp;   &harr;   &nbsp;</span>
-                            <span id="range2">
-                                50 000.00
-                            </span>
-                        </div>
-                        <div class="input-container">
-                            <div class="input-container__slider-track"></div>
-                            <input value="500" min="10" max="50000" step="10" type="range">
-                            <input value="50000" min="10" max="50000" step="10" type="range">
-                        </div>
-                    </div>
-                </div>
 
-                <div class="block-stock">
-                    <h2 class="block-stock__title title">Stock</h2>
-                    <div class="input-wrapper">
-                        <div class="input-values">
-                            <span id="range1">
-                                2
-                            </span>
-                            <span> &nbsp;   &harr;   &nbsp;</span>
-                            <span id="range2">
-                                150
-                            </span>
-                        </div>
-                        <div class="input-container">
-                            <div class="input-container__slider-track"></div>
-                            <input value="2" min="2" max="150" step="1" type="range">
-                            <input value="150" min="2" max="150" step="1" type="range">
-                        </div>
-                    </div>
-                </div>
+    <main class="main"></main>
 
-                <div class="filter-container__button">
-                    <button class="button">Reset Filters</button>
-                    <button class="button">Copy Link</button>
-                </div>
-            </div>
-            <div class="main__product-container">
-                <div class="sort-products">
-                    <div class="sort-bar">
-                        <select name="" id="">
-                            <option value="sort-title">Sort options:</option>
-                            <option value="price-ASC">Sort by price ASC</option>
-                            <option value="price-DESC">Sort by price DESC</option>
-                            <option value="rating-ASC">Sort by rating ASC</option>
-                            <option value="rating-DESC">Sort by rating DESC</option>
-                        </select>
-                    </div>
-                    <div class="sort-products__found">Found:</div>
-                    <div>
-                        <input type="search" placeholder="Search product">
-                    </div>
-                    <div class="view">
-                        <div class="view-small"><img src="./image/view-small.png" alt="View small" width="30" height="30"></div>
-                        <div class="view-big"><img src="./image/view-big.png" alt="View big" width="30" height="30"></div>
-                    </div>
-                </div>
-
-                <div class="products__items"></div>
-            </div>
-        </div>
-    </main>
     <footer class="footer">
         <div class="github">
             <a href="https://github.com/viktoridanilova"><img class="github__image" src="./image/github.svg" alt="Github" width="30" height="30"></a>
@@ -144,23 +38,201 @@
 </body>
 </html>
 
-<template id="card">
-    <div class="wrapper-item">
-        <div class="item-content">
-            <h3 class="item-content__title"></h3>
-            <img class="item-content__image" src="">
-            <div class="item-content__parameters">
-                <div class="item-content__category"></div>
-                <div class="item-content__brand"></div>
-                <div class="item-content__price"></div>
-                <div class="item-content__discount">Discount: </div>
-                <div class="item-content__rating"></div>
-                <div class="item-content__stock">Stock: </div>
+<template id="products">
+    <div class="main-wrapper">
+        <div class="main__filter-container">
+            <div class="block-category">
+                <h2 class="block-category__title title">Category</h2>
+                <div class="block-category__choice">
+                    <div>
+                        <input type="checkbox" id="phones" name="phones">
+                        <label for="phones">Phones</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="laptops" name="laptops">
+                        <label for="laptops">Laptops</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="accessories" name="accessories">
+                        <label for="accessories">Accessories</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="block-brand">
+                <h2 class="block-brand__title title">Brand</h2>
+                <div class="block-brand__choice">
+                    <div>
+                        <input type="checkbox" id="apple" name="apple">
+                        <label for="apple">Apple</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="xiaomi" name="xiaomi">
+                        <label for="xiaomi">Xiaomi</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="samsung" name="samsung">
+                        <label for="samsung">Samsung</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="block-price">
+                <h2 class="block-price__title title">Price</h2>
+                <div class="input-wrapper">
+                    <div class="input-values">
+                        <span id="range1">
+                            10.00
+                        </span>
+                        <span> &nbsp;   &harr;   &nbsp;</span>
+                        <span id="range2">
+                            50 000.00
+                        </span>
+                    </div>
+                    <div class="input-container">
+                        <div class="input-container__slider-track"></div>
+                        <input value="500" min="10" max="50000" step="10" type="range">
+                        <input value="50000" min="10" max="50000" step="10" type="range">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="block-stock">
+                <h2 class="block-stock__title title">Stock</h2>
+                <div class="input-wrapper">
+                    <div class="input-values">
+                        <span id="range1">
+                            2
+                        </span>
+                        <span> &nbsp;   &harr;   &nbsp;</span>
+                        <span id="range2">
+                            150
+                        </span>
+                    </div>
+                    <div class="input-container">
+                        <div class="input-container__slider-track"></div>
+                        <input value="2" min="2" max="150" step="1" type="range">
+                        <input value="150" min="2" max="150" step="1" type="range">
+                    </div>
+                </div>
+            </div>
+    
+            <div class="filter-container__button">
+                <button class="button">Reset Filters</button>
+                <button class="button">Copy Link</button>
             </div>
         </div>
-        <div class="item__button-conteiner">
-            <button class="item__button">ADD TO CART</button>
-            <button class="item__button">DETAILS</button>
+        <div class="main__product-container">
+            <div class="sort-products">
+                <div class="sort-bar">
+                    <select name="" id="">
+                        <option value="sort-title">Sort options:</option>
+                        <option value="price-ASC">Sort by price ASC</option>
+                        <option value="price-DESC">Sort by price DESC</option>
+                        <option value="rating-ASC">Sort by rating ASC</option>
+                        <option value="rating-DESC">Sort by rating DESC</option>
+                    </select>
+                </div>
+                <div class="sort-products__found">Found:</div>
+                <div>
+                    <input type="search" placeholder="Search product">
+                </div>
+                <div class="view">
+                    <div class="view-small"><img src="./image/view-small.png" alt="View small" width="30" height="30"></div>
+                    <div class="view-big"><img src="./image/view-big.png" alt="View big" width="30" height="30"></div>
+                </div>
+            </div>
+    
+            <div class="products__items">
+                <div class="wrapper-item">
+                    <div class="item-content">
+                        <h3 class="item-content__title"></h3>
+                        <div class="item-content__parameters">
+                            <div class="item-content__category"></div>
+                            <div class="item-content__brand"></div>
+                            <div class="item-content__price"></div>
+                            <div class="item-content__discount"></div>
+                            <div class="item-content__rating"></div>
+                        </div>
+                    </div>
+                    <div class="item__button-container">
+                        <button class="item__button item__button-add">ADD TO CART</button>
+                        <button class="item__button"><a>DETAILS</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+</template>
+
+<template id="card">
+
+    
+</template>
+
+<template id="details">
+    <div class="wrapper-details">
+        <div class="details-list">
+            <ul>
+                <li class="details-list__item details-list__item-store"><a href="">STORE</a></li>
+                <li class="details-list__arrow">&gt;&gt;</li>
+                <li class="details-list__item details-list__item-category"></li>
+                <li class="details-list__arrow">&gt;&gt;</li>
+                <li class="details-list__item details-list__item-brand"></li>
+                <li class="details-list__arrow">&gt;&gt;</li>
+                <li class="details-list__item details-list__item-name"></li>
+            </ul>
+        </div>
+        <div class="details-container">
+            <div class="wrapper__details-title">
+                <h2 class="details-title"></h2>
+            </div>
+            <div class="four-column-layout">
+                <div class="wrapper__image-slide">
+                    <div class="image-slide image-slide-1"></div>
+                    <div class="image-slide image-slide-2"></div>               
+                </div>
+                <div class="details-container__image">
+                    <div class="big-image"></div>
+                </div>
+                <div class="details-content">
+                    <div class="details-content__box details-content__description">
+                        <div class="category category-description">Description:</div>
+                        <div class="information information-description"></div>
+                    </div>
+                    <div class="details-content__box details-content__amount">
+                        <div class="category category-amount">Amount:</div>
+                        <div class="information information-amount"></div>
+                    </div>
+                    <div class="details-content__box details-content__rating">
+                        <div class="category category-rating">Rating:</div>
+                        <div class="information information-rating"></div>
+                    </div>
+                    <div class="details-content__box details-content__brand">
+                        <div class="category category-brand">Brand:</div>
+                        <div class="information information-brand"></div>
+                    </div>
+                    <div class="details-content__box details-content__category">
+                        <div class="category category-category">Category:</div>
+                        <div class="information information-category"></div>
+                    </div>
+                </div>
+                <div class="cost-and-buttons">
+                    <div class="cost"></div>
+                    <div class="buttons-conteiner">
+                        <button class="details__button">ADD TO CART</button>
+                        <button class="details__button">BUY NOW</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+</template>
+
+<template id="cart">
+
+</template>
+
+<template id="404">
+
 </template>

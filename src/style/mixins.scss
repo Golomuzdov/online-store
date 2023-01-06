@@ -1,0 +1,52 @@
+@mixin three-column-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+@mixin two-column-layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+@mixin title {
+    font-weight: 600;
+    font-size: $title-size;
+    color: $font-color;
+    @include border-buttom;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+@mixin border {
+    border: solid 2px $border-color;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+@mixin button {
+    font-size: $button-text-size;
+    color: $button-font-color;
+    width: 100%;
+    background: $background-button;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+@mixin row-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin centering {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin border-buttom {
+    border-bottom: solid 2px orangered;
+}

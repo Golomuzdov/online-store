@@ -9,3 +9,9 @@ export interface ICatalog {
   image: string[];
   rating: string;
 }
+
+export enum Routes {
+  Products = '/',
+  Details = '/details',
+  Cart = '/cart',
+}
