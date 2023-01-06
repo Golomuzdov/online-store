@@ -12,7 +12,6 @@ const router = new Router();
 router.navigate(Routes.Products, productsPage.renderCatalog());
 
 window.addEventListener('popstate', () => {
-  console.log(history);
   const path = window.location.pathname;
   const queryParams = window.location.search ?? '';
 
