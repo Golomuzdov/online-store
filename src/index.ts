@@ -1,7 +1,6 @@
 import { Details } from './components/details/details';
 import { Router } from './components/routing';
 import './style/home_page.scss';
-
 import { Products } from './components/products/products';
 import { Routes } from './components/intefaces/interfaces';
 
@@ -24,3 +23,4 @@ window.addEventListener('popstate', () => {
     router.navigate(Routes.Details, detailsPage.renderCardDetails(cardId), queryParams);
   }
 });
+

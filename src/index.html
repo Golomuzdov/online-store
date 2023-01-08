@@ -22,9 +22,91 @@
             </div>
         </div>
     </header>
+<<<<<<< HEAD
 
     <main class="main"></main>
 
+=======
+    <main class="main">
+        <div class="main-wrapper">
+            <div class="main__filter-container">
+                <div class="block-category">
+                    <h2 class="block-category__title title">Category</h2>
+                    <div class="block-category__choice">
+                        <div>
+                            <input type="checkbox" id="phones" name="phones">
+                            <label for="phones" class="category-filter__label">Phones</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="laptops" name="laptops">
+                            <label for="laptops" class="category-filter__label">Laptops</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="accessories" name="accessories">
+                            <label for="accessories" class="category-filter__label">Accessories</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="block-brand">
+                    <h2 class="block-brand__title title">Brand</h2>
+                    <div class="block-brand__choice">
+                        <div>
+                            <input type="checkbox" id="apple" name="apple">
+                            <label for="apple" class="brand-filter__label">Apple</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="xiaomi" name="xiaomi">
+                            <label for="xiaomi" class="brand-filter__label">Xiaomi</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="samsung" name="samsung">
+                            <label for="samsung" class="brand-filter__label">Samsung</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="block-price">
+                    <h2 class="block-price__title title">Price</h2>
+                    <div id="slider-amount" class="slider"></div>
+                </div>
+
+                <div class="block-stock">
+                    <h2 class="block-stock__title title">Stock</h2>
+                    <div id="slider-amount" class="slider"></div>
+                </div>
+
+                <div class="filter-container__button">
+                    <button class="button">Reset Filters</button>
+                    <button class="button">Copy Link</button>
+                </div>
+            </div>
+            <div class="main__product-container">
+                <div class="sort-products">
+                    <div class="sort-bar">
+                        <select class="sort__selection" name="sort" id="">
+                            <option value="sort-title">Sort options:</option>
+                            <option value="price-ASC">Sort by price ASC</option>
+                            <option value="price-DESC">Sort by price DESC</option>
+                            <option value="rating-ASC">Sort by rating ASC</option>
+                            <option value="rating-DESC">Sort by rating DESC</option>
+                        </select>
+                    </div>
+                    <div class="sort-products__found">Found:</div>
+                    <div>
+                        <input type="search" placeholder="Search product">
+                    </div>
+                    <div class="view">
+                        <div class="view-small" style="cursor: pointer;"><img src="./image/view-small.png" alt="View small" width="30" height="30"></div>
+                        <div class="view-big" style="cursor: pointer;"><img src="./image/view-big.png" alt="View big" width="30" height="30"></div>
+                    </div>
+                </div>
+
+                <div class="products__items"></div>
+            </div>
+        </div>
+    </main>
+>>>>>>> fa1ed0a (feat: create feature/product-sorting)
     <footer class="footer">
         <div class="github">
             <a href="https://github.com/viktoridanilova"><img class="github__image" src="./image/github.svg" alt="Github" width="30" height="30"></a>
@@ -38,6 +120,7 @@
 </body>
 </html>
 
+<<<<<<< HEAD
 <template id="products">
     <div class="main-wrapper">
         <div class="main__filter-container">
@@ -120,6 +203,20 @@
             <div class="filter-container__button">
                 <button class="button">Reset Filters</button>
                 <button class="button">Copy Link</button>
+=======
+<template class="card" id="card">
+    <div class="wrapper-item">
+        <div class="item-content">
+            <h3 class="item-content__title"></h3>
+            <img class="item-content__image" src="">
+            <div class="item-content__parameters">
+                <div class="item-content__category"></div>
+                <div class="item-content__brand"></div>
+                <div class="item-content__price"></div>
+                <div class="item-content__discount">Discount: </div>
+                <div class="item-content__rating"></div>
+                <div class="item-content__stock">Stock: </div>
+>>>>>>> fa1ed0a (feat: create feature/product-sorting)
             </div>
         </div>
         <div class="main__product-container">
