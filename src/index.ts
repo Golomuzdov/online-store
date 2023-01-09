@@ -8,8 +8,6 @@ const productsPage = new Products();
 const detailsPage = new Details();
 const router = new Router();
 
-router.navigate(Routes.Products, productsPage.renderCatalog());
-
 window.addEventListener('popstate', () => {
   const path = window.location.pathname;
   const queryParams = window.location.search ?? '';

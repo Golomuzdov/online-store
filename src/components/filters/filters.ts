@@ -1,72 +1,49 @@
-import { ICatalog, LocalOptions } from '../intefaces/interfaces';
-import { UrlSearchParams } from '../search-params/url';
+/* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
+import { ICatalog } from '../intefaces/interfaces';
+import { CATALOG } from '../products/catalog/catalog';
+import { urlGet } from '../search-params/url';
 
 export class Filters {
+  private cardsData: ICatalog[] = CATALOG;
 
-  search: UrlSearchParams;
-
-  searchObject: void;
-
-  constructor() {
-    this.search = new UrlSearchParams();
-    this.searchObject = this.search.urlGet();
-  }
-
-  filterAll(data: ICatalog[], options: LocalOptions): ICatalog[] {
-    // eslint-disable-next-line no-param-reassign
-    data = data.filter((item: ICatalog) => {
+  filterAll(): ICatalog[] {
+    const filterOptions = urlGet();
+    
+    const filteredData = this.cardsData.filter((item: ICatalog) => {
       return (
-        this.filterByBrand(item, options.brands) &&
-        this.filterByCategory(item, options.categories)
+        this.filterByBrand(item, filterOptions.brands?.split('|')!) &&
+        this.filterByCategory(item, filterOptions.categories?.split('|')!) &&
+        this.filterByPrice(item, filterOptions.price?.split('|')!) &&
+        this.filterByAmount(item, filterOptions.amount?.split('|')!)
       );
     });
 
-    this.markLabel(options);
-    return data;
-  }
-
-  markLabel(options: LocalOptions): void {
-    const labelsBrand: NodeListOf<HTMLLabelElement> = document.querySelectorAll('.brand-filter__label');
-    const labelsColor: NodeListOf<HTMLLabelElement> = document.querySelectorAll('.category-filter__label');
-    labelsBrand.forEach((brand) => {
-      if (options.brands.includes(brand.innerHTML)) {
-        brand.classList.add('checked');
-      } else {
-        brand.classList.remove('checked');
-      }
-    });
-
-    labelsColor.forEach((category) => {
-      if (options.colors.includes(category.htmlFor)) {
-        category.classList.add('checked');
-      } else {
-        category.classList.remove('checked');
-      }
-    });
+    return filteredData;
   }
 
   filterByBrand(item: ICatalog, brands: string[]) {
-
-    if (brands.length > 0) {
-      return brands.includes(item.brand);
+    const brandsArray = brands ? brands : [];
+    if (brandsArray.length > 0) {
+      return brands.includes(item.brand.toLocaleLowerCase());
     } else {
       return true;
     }
-    // console.log('searchObject', this.searchObject);
-    
-    // this.search.urlUpdate('brand', `${name}`);
-    // return array.filter(element => element.brand.toLowerCase() === name);
   }
 
   filterByCategory(item: ICatalog, categories: string[]) {
-    if (categories.length > 0) {
-      return categories.includes(item.category);
+    const categoriesArray = categories ? categories : [];
+    if (categoriesArray.length > 0) {
+      return categories.includes(item.category.toLocaleLowerCase());
     } else {
       return true;
     }
   }
 
-  // removeFilters(array: ICatalog[], name: string) {
-  //   return array.filter(element => element.brand.toLowerCase() === name);
-  // }
+  filterByPrice(item: ICatalog, price: string[]): boolean {
+    return item.price < +price[1] && item.price > +price[0];
+  }
+
+  filterByAmount(item: ICatalog, amount: string[]): boolean {
+    return +item.amount < +amount[1] && +item.amount > +amount[0];
+  }
 }

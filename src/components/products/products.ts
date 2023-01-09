@@ -6,11 +6,19 @@ import { Cart } from '../cart/cart';
 
 import Sorting from './../filters/sort';
 import { Filters } from '../filters/filters';
+<<<<<<< HEAD
 import { UrlSearchParams } from '../search-params/url';
 import Slider from '../slider/slider';
 // eslint-disable-next-line import/namespace
 import { ICatalog, CartItem, Routes } from '../intefaces/interfaces';
 // import { Selection } from '../enums/enums';
+=======
+import { urlSet } from '../search-params/url';
+import Slider from '../slider/slider';
+
+const brands = ['apple', 'xiaomi', 'samsung'];
+// const categories = ['phones', 'laptops', 'accessories'];
+>>>>>>> fb6ecf6 (feat: add filters/sorting with query params)
 
 export class Products {
   private cardsData: ICatalog[] = CATALOG;
@@ -34,9 +42,11 @@ export class Products {
 
   public productItems: HTMLElement = <HTMLElement> this.queryElement('.products__items');
 
-  public search: UrlSearchParams;
+  brandNames: string[];
 
-  checkboxNames: string[];
+  categoryNames: string[];
+
+  slider: Slider;
 
   constructor() {
     this.sorting = new Sorting();
@@ -44,10 +54,13 @@ export class Products {
     this.select = <HTMLSelectElement>document.querySelector('.sort__selection');
 
     this.checkbox = document.querySelectorAll('input[type=checkbox]');
-    this.checkboxNames = [];
-    this.search = new UrlSearchParams();
+    this.brandNames = [];
+    this.categoryNames = [];
+    this.slider = new Slider();
     this.sortCards();
     this.filterCards();
+    this.filterByPrice();
+    this.filterByAmount();
     this.viewCards();
     this.slider.renderSlider();
   }
@@ -84,6 +97,7 @@ export class Products {
     return catalogWrapper; 
   }
 
+<<<<<<< HEAD
   private filledCard(cardWrapper: HTMLElement, card: ICatalog): HTMLElement {
     const cardTitle: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__title');
     const itemCategory: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__category');
@@ -94,6 +108,19 @@ export class Products {
     const addRemoveFromCart: HTMLElement = <HTMLElement> cardWrapper.querySelector('.item__button-add');
     const cart: CartItem[] = JSON.parse(<string>localStorage.getItem('cart'));
     const currentCard = cart ? cart.find(item => item.id === card.id) : undefined;
+=======
+  public renderCards(): void {
+    const cardTemplate: HTMLTemplateElement = <HTMLTemplateElement> this.queryElement('#card');
+
+    this.cardsData.forEach((card: ICatalog) => {
+      const cardTemplateNode: HTMLTemplateElement = <HTMLTemplateElement>cardTemplate.content.cloneNode(true);
+      const cardWrapper: HTMLElement = <HTMLElement>cardTemplateNode.querySelector('.wrapper-item');
+      const cardTitle: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__title');
+      const itemCategory: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__category');
+      const itemBrand: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__brand');
+      const itemPrice: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__price');
+      const itemRating: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__rating');
+>>>>>>> fb6ecf6 (feat: add filters/sorting with query params)
 
     addRemoveFromCart.innerHTML = currentCard ? 'DROP FROM CART' : 'ADD TO CART';
     cardTitle.innerHTML = card.name;
@@ -106,6 +133,7 @@ export class Products {
     itemRating.innerHTML = `Rating: ${card.rating}`;
     itemAmount.innerHTML = `Amount: ${card.amount}`;
 
+<<<<<<< HEAD
     return cardWrapper;
   }
 
@@ -125,6 +153,9 @@ export class Products {
           this.setItemsLocalStorage(cardId);
         }
       }
+=======
+      this.productItems.appendChild(cardWrapper);
+>>>>>>> fb6ecf6 (feat: add filters/sorting with query params)
     });
   }
 
@@ -172,7 +203,6 @@ export class Products {
   }
 
   sortCards() {
-
     this.select.addEventListener('change', (e) => {
       const target = e.target as HTMLSelectElement;
       switch (target.value) {
@@ -192,39 +222,53 @@ export class Products {
     });
   }
 
-  // filterCards() {
-  //   const labelsBrand: NodeListOf<HTMLLabelElement> = document.querySelectorAll('.brand__filter-label');
-  //   labelsBrand.forEach((brand) => {
-  //     brand.addEventListener('click', () => {
-  //       this.view.toggleBrand(brand.innerHTML);
-  //     });
-  //   });
-  // }
-
   filterCards() {
     this.checkbox.forEach((input) => {
       input.addEventListener('change', (e) => {
-       
         const target = e.target as HTMLInputElement;
-        console.log(target.checked);
         const inputName = target.getAttribute('name') as string;
         if (target.checked) {
-          this.checkboxNames.push(inputName);
-
+          if (brands.includes(inputName)) {
+            this.brandNames.push(inputName);
+          } else {
+            this.categoryNames.push(inputName);
+          }
         } else {
-          this.checkboxNames.splice(this.checkboxNames.indexOf(inputName), 1);
+          if (brands.includes(inputName)) {
+            this.brandNames.splice(this.brandNames.indexOf(inputName), 1);
+          } else {
+            this.categoryNames.splice(this.categoryNames.indexOf(inputName), 1);
+          }
         }
-        console.log(this.checkboxNames);
-        this.search.urlSet('filter', this.checkboxNames);
-        this.search.urlGet();
-        // this.updateCards(this.filters.filterByBrand(this.cardsData, inputName));
+        if (brands.includes(inputName)) {
+          urlSet('brands', this.brandNames);
+        } else {
+          urlSet('categories', this.categoryNames);
+        }
+        this.updateCards(this.filters.filterAll());
       });
     });
   }
 
+  filterByPrice() {
+    this.slider.renderPriceSlider();
+    this.slider.price.noUiSlider?.on('update', () => {
+      urlSet('price', this.slider.price.noUiSlider?.get() as string[]);
+      this.updateCards(this.filters.filterAll());
+    });
+  }
+
+  filterByAmount() {
+    this.slider.renderAmountSlider();
+    this.slider.amount.noUiSlider?.on('update', () => {
+      urlSet('amount', this.slider.amount.noUiSlider?.get() as string[]);
+      this.updateCards(this.filters.filterAll());
+    });
+  }
+
   viewCards() {
-    const viewSmall = <HTMLElement>document.querySelector('.view-big') as HTMLElement;
-    const viewBig = <HTMLElement>document.querySelector('.view-small') as HTMLElement;
+    const viewSmall = (<HTMLElement>document.querySelector('.view-big')) as HTMLElement;
+    const viewBig = (<HTMLElement>document.querySelector('.view-small')) as HTMLElement;
     const wrapperItem = document.getElementsByClassName('wrapper-item') as HTMLCollectionOf<HTMLElement>;
     viewSmall.addEventListener('click', () => {
       for (const i in wrapperItem) {
