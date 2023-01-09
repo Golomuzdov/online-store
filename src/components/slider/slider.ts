@@ -1,27 +1,43 @@
-import noUiSlider from 'nouislider';
+import noUiSlider, { target } from 'nouislider';
 import 'nouislider/dist/nouislider.css';
 
 class Slider {
   sliders: HTMLCollectionOf<Element>;
+  
+  price: target;
+
+  amount: target;
 
   constructor() {
-    this.sliders = <HTMLCollectionOf<Element>><unknown>document.querySelectorAll('.slider');
+    this.sliders = <HTMLCollectionOf<Element>>(<unknown>document.querySelectorAll('.slider'));
+    this.price = <target>document.getElementById('slider-price');
+    this.amount = <target>document.getElementById('slider-stock');
   }
 
-  renderSlider() {
-    const numSlider = [[10, 5200], [0, 100]];
-    for (let i = 0; i < this.sliders.length; i++) {
-      noUiSlider.create(this.sliders[i] as HTMLElement, {
-        start: numSlider[i],
-        step: 1,
-        connect: true,
-        range: {
-          'min': numSlider[i][0],
-          'max': numSlider[i][1],
-        },
-        tooltips: true,
-      });
-    }
+  renderPriceSlider() {
+    noUiSlider.create(this.price, {
+      start: [10, 5200],
+      connect: true,
+      step: 1,
+      range: {
+        min: 10,
+        max: 5200,
+      },
+      tooltips: true,
+    });
+  }
+
+  renderAmountSlider() {
+    noUiSlider.create(this.amount, {
+      start: [0, 100],
+      connect: true,
+      step: 1,
+      range: {
+        min: 0,
+        max: 100,
+      },
+      tooltips: true,
+    });
   }
 }
 

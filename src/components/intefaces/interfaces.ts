@@ -12,10 +12,11 @@ export interface ICatalog {
 
 export interface LocalOptions {
   sort: string;
-  categories: string[];
+  categories: string;
   items: ICatalog[];
-  price: [number, number];
+  price: string;
+  amount: string;
   value: [number, number];
-  brands: string[];
   colors: string[];
+  brands: string;
 }
