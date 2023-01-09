@@ -15,3 +15,8 @@ export enum Routes {
   Details = '/details',
   Cart = '/cart',
 }
+
+export interface CartItem {
+  id: string;
+  amount: string;
+}

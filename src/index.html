@@ -230,7 +230,64 @@
 </template>
 
 <template id="cart">
-
+    <div class="cart-wrapper">
+        <div class="cart__items-wrapper">
+            <div class="block-cart-products">
+                <div class="cart-title-and-control">
+                    <h4 class="cart-title">Products In Cart</h4>
+                    <div class="block-limit">
+                        <span class="limit">LIMIT:</span>
+                        <input class="limit__input" type="number" min="1" max="5" value="3">
+                    </div>
+                    <div class="block-page">
+                        <div class="page">PAGE:</div>
+                        <button class="button-left" onclick="this.parentNode.querySelector('input[type=number]').stepDown(); this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('change'))">&lt;</button>
+                        <input class="pages-number" min="1" value="1" type="number">
+                        <button class="button-right" onclick="this.parentNode.querySelector('input[type=number]').stepUp(); this.parentNode.querySelector('input[type=number]').dispatchEvent(new Event('change'))">&gt;</button>
+                    </div>
+                </div>
+                <div class="wrapper-cart-products">
+                    <div class="cart-products">
+                        <div class="for-column-layout">
+                            <div class="serial-number"></div>
+                            <div class="cart-products__image"></div>
+                            <div class="cart-products__description">
+                                <div class="description__title"></div>
+                                <div class="description__text"></div>
+                                <div class="description__additional-information">
+                                    <div class="description__rating"></div>
+                                    <div class="description__discount"></div>
+                                </div>
+                            </div>
+                            <div class="number-contol">
+                                <div>Amount: <span class="number-contol__amount"></span> </div>
+                                <div class="add-remove-control">
+                                    <button class="add-remove-control__button add-button">+</button>
+                                    <span class="add-remove-amount">1</span>
+                                    <button class="add-remove-control__button remove-button">-</button>
+                                </div>
+                                <div>Price $:<span class="number-contol__price"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+    
+            </div>
+            <div class="cart-amount">
+                <div>
+                    <h4 class="cart-amount__title">Summary</h4>
+                </div>
+                <div class="cart-amount__total-products">
+                    <div class="cart-amount__products"></div>
+                    <div class="cart-amount__total-price"></div>
+                    <input class="cart-amount__input" type="text" placeholder="Enter promo code">
+                    <button class="cart-amount__button">BUY NOW</button>
+                </div>
+    
+            </div>
+        </div>
+    </div>
 </template>
 
 <template id="404">
