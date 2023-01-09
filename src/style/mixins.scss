@@ -50,3 +50,13 @@
 @mixin border-buttom {
     border-bottom: solid 2px orangered;
 }
+
+@mixin input-type-number {
+    cursor: pointer;
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    border: solid 1px orangered;
+    border-radius: 2px;
+    color: orangered;
+}

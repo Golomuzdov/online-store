@@ -1,6 +1,7 @@
 @import "color_and_font.scss";
 @import "mixins";
 @import "details_page.scss";
+@import "cart_page.scss";
 
 * {
     box-sizing: border-box;
@@ -21,6 +22,10 @@ body {
     width: 100%;
     height: 160px;
     @include three-column-layout;
+}
+
+.header__shopping-basket {
+    cursor: pointer;
 }
 
 .main-wrapper {
