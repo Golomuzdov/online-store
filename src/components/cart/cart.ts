@@ -37,6 +37,14 @@ export class Cart {
 
   }
 
+  public renderEmptyCart(): HTMLElement {
+    const emptyCartElement = document.createElement('div');
+    emptyCartElement.innerHTML = 'Cart is Empty';
+    emptyCartElement.classList.add('empty-cart');
+
+    return emptyCartElement;
+  }
+
   private updateCart(cartWrapper: HTMLElement, cardsToRender: ICatalog[]): void {
     const cartItemsWrapper: HTMLElement = <HTMLElement>cartWrapper.querySelector('.wrapper-cart-products');
     const cartItem: HTMLElement = <HTMLElement>cartWrapper.querySelector('.cart-products');
@@ -71,8 +79,7 @@ export class Cart {
     const totalAmount: HTMLElement = <HTMLElement>cardNode.querySelector('.number-contol__amount');
     const price: HTMLElement = <HTMLElement>cardNode.querySelector('.number-contol__price');
     const cartAmount: HTMLElement = <HTMLElement>cardNode.querySelector('.add-remove-amount');
-    
-    // const descriptionDiscount:HTMLElement = <HTMLElement>cartItemsWrapper.querySelector('.description__discount');
+
     cardSerialNumber.innerHTML = `${index + 1}`;
     cartAmount.innerHTML = `${cart[index].amount}`;
     cartImage.style.background = `url(${card.image[0]})`;
@@ -148,7 +155,6 @@ export class Cart {
       } 
 
       if (target.className.includes('remove-button')) {
-        
         currentAmount = currentAmount - 1;
         totalPrice.innerHTML = `${Number(totalPrice.textContent) - card.price}`;
         if (currentAmount === 0) {

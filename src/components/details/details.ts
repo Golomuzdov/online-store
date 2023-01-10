@@ -6,6 +6,8 @@ export class Details {
 
   private detailsTemplate: HTMLTemplateElement = <HTMLTemplateElement>document.getElementById('details');
 
+  private addCartButton: HTMLElement = <HTMLElement>document.querySelector('.details__button');
+
   public renderCardDetails(cardId: string): HTMLElement {
 
     const cardToRender: ICatalog = <ICatalog> this.cardsData.find(card => card.id === cardId);
