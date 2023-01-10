@@ -29,27 +29,29 @@ export class Products {
 
   private cart: Cart = new Cart();
 
-
   private brandNames: string[] = [];
 
   private categoryNames: string[] = [];
 
+  private cartBlock: HTMLElement = <HTMLElement>document.querySelector('.header__shopping-basket');
+
   public updateCards(array: ICatalog[], cardsWrapper: HTMLElement) {
-    this.cardsData = array;
+    if (JSON.stringify(this.cardsData) !== JSON.stringify(array) && array.length) {
 
-    let cardWrapper: HTMLElement | Node = <HTMLElement>cardsWrapper.querySelector('.wrapper-item');
-    
-    cardsWrapper.innerHTML = '';
-    this.cardsData.forEach((card: ICatalog, index: number) => {
-      const isFirstCard = index === 0;
-      
-      if (!isFirstCard) {
-        cardWrapper = cardWrapper.cloneNode(true);
-      } 
+      let cardWrapper: HTMLElement | Node = <HTMLElement>cardsWrapper.querySelector('.wrapper-item');
+      this.cardsData = array;
+      cardsWrapper.innerHTML = '';
+      this.cardsData.forEach((card: ICatalog, index: number) => {
 
-      cardsWrapper.appendChild(this.filledCard(<HTMLElement>cardWrapper, card));
-    });
-    
+        const isFirstCard = index === 0;
+        
+        if (!isFirstCard) {
+          cardWrapper = cardWrapper.cloneNode(true);
+        } 
+  
+        cardsWrapper.appendChild(this.filledCard(<HTMLElement>cardWrapper, card));
+      });
+    }
   }
   
   public renderCatalog(): HTMLElement {
@@ -75,6 +77,7 @@ export class Products {
   }
 
   private filledCard(cardWrapper: HTMLElement, card: ICatalog): HTMLElement {
+
     const cardTitle: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__title');
     const itemCategory: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__category');
     const itemBrand: HTMLElement = <HTMLElement>cardWrapper.querySelector('.item-content__brand');
@@ -143,20 +146,17 @@ export class Products {
     }
   }
 
-  private cartBlock: HTMLElement = <HTMLElement>document.querySelector('.header__shopping-basket');
 
   private addListenerToCart(): void {
     this.cartBlock.addEventListener('click', () => {
       if (localStorage.length) {
         this.router.navigate(Routes.Cart, this.cart.renderCart());
       } else {
-        // window.history.pushState({}, '', '/cart');
-        
+        this.router.navigate(Routes.Cart, this.cart.renderEmptyCart());
       }
     });
   }
   
-
   private queryElement(selector: string): HTMLElement | HTMLTemplateElement | null {
     return document.querySelector(selector);
   }
