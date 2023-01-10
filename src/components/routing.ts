@@ -1,4 +1,4 @@
-import { Routes } from './intefaces/interfaces';
+import { Routes } from './interfaces/interfaces';
 export class Router {
   public navigate(route: Routes, template: HTMLElement, queryParams?: string): void {
     const main: HTMLElement = <HTMLElement> document.querySelector('.main');

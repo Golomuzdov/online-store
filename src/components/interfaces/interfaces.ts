@@ -20,3 +20,13 @@ export interface CartItem {
   id: string;
   amount: string;
 }
+export interface LocalOptions {
+  sort: string;
+  categories: string;
+  items: ICatalog[];
+  price: string;
+  amount: string;
+  value: [number, number];
+  colors: string[];
+  brands: string;
+}
