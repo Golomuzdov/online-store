@@ -1,5 +1,5 @@
 import { CATALOG } from './../products/catalog/catalog';
-import { ICatalog, CartItem } from './../intefaces/interfaces';
+import { ICatalog, CartItem } from '../interfaces/interfaces';
 
 export class Cart {
   private cardsData: ICatalog[] = CATALOG;

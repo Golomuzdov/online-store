@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-asserted-optional-chain */
-import { ICatalog } from '../intefaces/interfaces';
+import { ICatalog } from '../interfaces/interfaces';
 import { CATALOG } from '../products/catalog/catalog';
 import { urlGet } from '../search-params/url';
 
@@ -8,7 +8,6 @@ export class Filters {
 
   filterAll(): ICatalog[] {
     const filterOptions = urlGet();
-    
     const filteredData = this.cardsData.filter((item: ICatalog) => {
       return (
         this.filterByBrand(item, filterOptions.brands?.split('|')!) &&
@@ -44,6 +43,6 @@ export class Filters {
   }
 
   filterByAmount(item: ICatalog, amount: string[]): boolean {
-    return +item.amount < +amount[1] && +item.amount > +amount[0];
+    return amount ? +item.amount < +amount[1] && +item.amount > +amount[0] : false;
   }
 }

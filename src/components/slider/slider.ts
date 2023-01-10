@@ -3,19 +3,14 @@ import 'nouislider/dist/nouislider.css';
 
 class Slider {
   sliders: HTMLCollectionOf<Element>;
-  
-  price: target;
-
-  amount: target;
 
   constructor() {
     this.sliders = <HTMLCollectionOf<Element>>(<unknown>document.querySelectorAll('.slider'));
-    this.price = <target>document.getElementById('slider-price');
-    this.amount = <target>document.getElementById('slider-stock');
+    
   }
 
-  renderPriceSlider() {
-    noUiSlider.create(this.price, {
+  renderPriceSlider(price: target) {
+    noUiSlider.create(price, {
       start: [10, 5200],
       connect: true,
       step: 1,
@@ -27,8 +22,8 @@ class Slider {
     });
   }
 
-  renderAmountSlider() {
-    noUiSlider.create(this.amount, {
+  renderAmountSlider(amount: target) {
+    noUiSlider.create(amount, {
       start: [0, 100],
       connect: true,
       step: 1,

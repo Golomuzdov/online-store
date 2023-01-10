@@ -1,4 +1,4 @@
-import { LocalOptions } from '../intefaces/interfaces';
+import { LocalOptions } from '../interfaces/interfaces';
 
 const searchParams = new URLSearchParams(window.location.search);
 

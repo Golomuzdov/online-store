@@ -1,4 +1,4 @@
-import { ICatalog } from '../intefaces/interfaces';
+import { ICatalog } from '../interfaces/interfaces';
 import { CATALOG } from '../products/catalog/catalog';
 
 export class Details {

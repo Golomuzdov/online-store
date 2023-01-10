@@ -1,4 +1,4 @@
-import { ICatalog } from '../../intefaces/interfaces';
+import { ICatalog } from '../../interfaces/interfaces';
 
 export const CATALOG: ICatalog[] = [
   {

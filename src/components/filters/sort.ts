@@ -1,5 +1,5 @@
 import { urlSet } from '../search-params/url';
-import { ICatalog } from './../intefaces/interfaces';
+import { ICatalog } from '../interfaces/interfaces';
 
 
 class Sorting {
